@@ -1,0 +1,75 @@
+
+
+Example using http://echo.lab.madgex.com/
+
+
+
+# Obtain a request token (automatically generated nonce and timestamp). Identify myself as 'key' and use the default Authorization method
+python2.6 OAuthTool.py --action getRequestToken --consumersecret=secret --consumerkey=key --signaturemethod=HMAC-SHA1 http://echo.lab.madgex.com/request-token.ashx
+
+# Obtain a request token using POST
+python2.6 OAuthTool.py --action getRequestToken --method=POST --consumersecret=secret --consumerkey=key --signaturemethod=HMAC-SHA1 http://echo.lab.madgex.com/request-token.ashx
+
+# Obtain a request token using GET
+python2.6 OAuthTool.py --action getRequestToken --method=POST --consumersecret=secret --consumerkey=key --signaturemethod=HMAC-SHA1 http://echo.lab.madgex.com/request-token.ashx
+
+
+OAuthTool.py --action getAccessToken --method=POST --consumersecret=secret --consumerkey=key --signaturemethod=HMAC-SHA1 --tokenkey=requestkey --tokensecret=requestsecret http://echo.lab.madgex.com/access-token.ashx
+
+
+
+This is a static example of obtaining a request token:
+
+
+http://echo.lab.madgex.com/request-token.ashx
+
+oauth_consumer_key=key
+oauth_nonce=2d149a8e-dd3f-45f4-9fa6-00e7730efa5a
+oauth_signature=M8v5RD9HyaK/oyK/4wuTJOTQIo8=
+oauth_signature_method=HMAC-SHA1
+oauth_timestamp=1248125914
+oauth_version=1.0
+
+The corresponding command line would be:
+
+python2.6 OAuthTool.py --action getRequestToken --consumersecret=secret --consumerkey=key --signaturemethod=HMAC-SHA1 --force_timestamp=1248125914 --force_nonce=2d149a8e-dd3f-45f4-9fa6-00e7730efa5a http://echo.lab.madgex.com/request-token.ashx
+
+
+
+# Obtaining a request token with a statically coded nonce
+python2.6 OAuthTool.py --action getRequestToken --consumersecret=secret --consumerkey=key --signaturemethod=HMAC-SHA1 --force_nonce=2d149a8e-dd3f-45f4-9fa6-00e7730efa5a http://echo.lab.madgex.com/request-token.ashx
+
+
+
+
+
+# Getting a Request Token from Twitter
+OAuthTool.py --action getRequestToken --consumerkey=ggENO5sBlumwBDygoMA --consumersecret=0mqeBWUue6oPEk3itYupafSByeFScvde3x2a5cQZ4 --signaturemethod=HMAC-SHA1 http://twitter.com/oauth/request_token
+
+
+
+
+OAuthTool.py --action getAccessToken --consumerkey=ggENO5sBlumwBDygoMA --requesttoken=<previousvalue> --signaturemethod=HMAC-SHA1 http://twitter.com/oauth/request_token
+
+
+
+
+
+
+
+
+
+
+
+Yahoo!
+
+API Key (OAuth consumer key): dj0yJmk9dDBzaXNzQkdNOVV2JmQ9WVdrOVFYbHRUVTgyTTJVbWNHbzlNakF3TmpJNU5qa3pOdy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1lNw--
+Shared Secret: b0a98682307d6ae8508e0336bab702fda1fc0552
+
+Application ID: AymMO63e
+
+python2.6 OAuthTool.py --action getRequestToken --method=GET --consumersecret=b0a98682307d6ae8508e0336bab702fda1fc0552 --consumerkey=dj0yJmk9dDBzaXNzQkdNOVV2JmQ9WVdrOVFYbHRUVTgyTTJVbWNHbzlNakF3TmpJNU5qa3pOdy0tJnM9Y29uc3VtZXJzZWNyZXQmeD1lNw-- --signaturemethod=HMAC-SHA1 https://api.login.yahoo.com/oauth/v2/get_request_token
+
+
+
+
